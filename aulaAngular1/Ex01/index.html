@@ -1,0 +1,37 @@
+<html ng-app="app">
+<head>
+	<title>ANGULAR Ex</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+    	angular
+    		.module('app', [])
+    	    .controller('IndexController', IndexController)
+    	    .controller('OutroController', function($scope){
+    	    	$scope.valorNoOutroController = 'valorNoOutroController';
+    	    })
+    	    .controller('MaisUmController', ['scope', function($scope){
+    	    	$scope.ss = 'ss';
+    	    }])
+    
+    	    IndexController.$inject = ['$scope'];
+        	function IndexController($scope) {
+        		$scope.valorNoIndexController = 'valorNoIndexController';
+        	}
+    </script>
+
+</head>
+<body>
+	<div ng-controller="IndexController">
+		{{oi}}
+		<input type="text" ng-model="oi">
+	</div>
+	<div ng-controller="OutroController">
+		{{ola}}
+		<input type="text" ng-model="ola">
+	</div>
+	<div ng-controller="MaisUmController">
+		{{ss}}
+		<input type="text" ng-model="ss">
+	</div>
+</body>
+</html>
