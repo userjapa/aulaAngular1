@@ -27,20 +27,34 @@
 	<br>
 	<br>
 	<div class="form-group">
-		<form name="docesForm" ng-submit="salvarDoce()">
+		<form name="docesForm" ng-submit="salvarDoce(doce)">
 			<div class="col-md-6 col-md-6">
 				<label>Nome do Doce</label>
-				<input type="text" name="doceNome" ng-model="doceNome" class="form-control" required>
+				<input type="text" name="doceNome" ng-model="doce.nome" class="form-control" required>
 				<p ng-if="docesForm.doceNome.$invalid">Nome dos doces está invalido</p>
 			</div>
 			<div class="col-md-6 col-md-6">
 				<label>Cor do Doce</label>
-				<input type="text" name="doceCor" ng-minlength="10" ng-model="doceCor" class="form-control" required>
+				<input type="text" name="doceCor" ng-minlength="10" ng-model="doce.cor" class="form-control" required>
 				<p ng-if="docesForm.doceCor.$invalid">Cor dos doces está invalido</p>
 
 			</div>
 			<button type="submit" ng-disabled="docesForm.$invalid" class="btn btn-success"> salvar </button>
 		</form>
+        
+        <table name="tblDoces" class="table">
+            <thead clas="table table-hover">
+                <tr>
+                    <td>Nome</td>
+                    <td>Cor</td>
+                </tr>
+            </thead>
+            <tr ng-repeat="doce in doces track by $index">
+                <td>{{doce.nome}}</td>
+                <td>{{doce.cor}}</td>
+                <td><button></button></td>
+            </tr>
+        </table>
 	</div>
 
 </html>
