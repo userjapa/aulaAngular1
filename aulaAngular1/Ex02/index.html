@@ -47,14 +47,17 @@
                 <tr>
                     <td>Nome</td>
                     <td>Cor</td>
+                    <td>Remover</td>
                 </tr>
             </thead>
             <tr ng-repeat="doce in doces track by $index">
                 <td>{{doce.nome}}</td>
                 <td>{{doce.cor}}</td>
-                <td><button></button></td>
+                <td><button ng-click="removerDoce(doce)" class="btn btn-default" name="remover">Remover</button></td>
             </tr>
         </table>
+        <br>
+        <button ng-click="mostrarDoces()" class=""btn btn-default>Mostrar</button>
 	</div>
 
 </html>
