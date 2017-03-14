@@ -6,13 +6,26 @@
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/indexController.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Teste</title>
         
     </head>
-    <body ng-controller="IndexController">        
+    <body ng-controller="IndexController">
+        
+        <form name="cadForm" ng-submit="salvar()">
+            <input type="text" name="nome" ng-model="elemento.nome" ng-minlength="5" required>
+            <input type="text" name="cidade" ng-model="elemento.cidade" ng-minlength="5" required>
+            <button class="btn btn-default" type="submit" ng-disabled="cadForm.$invalid">Salvar</button>
+        </form>
+        
         <table class="table table-striped">
             <tr>
                 <th>Nome</th>
                 <th>Cidade</th>
+                <th>Remover</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="name" ng-model="name" required></td>
+                <td><input type="text" name="city" ng-model="city" required></td>
             </tr>
             <tr>
                 <td><input type="text" name="name" ng-model="name" required></td>
@@ -21,6 +34,7 @@
             <tr ng-repeat="x in lista | filter: name | filter: city">
                 <td>{{x.nome}}</td>
                 <td>{{x.cidade}}</td>
+                <td><button class="btn btn-default" ng-click="remover(elemento)">Remover</button></td>
             </tr>
         </table>
     </body>
