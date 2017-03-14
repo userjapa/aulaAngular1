@@ -7,9 +7,9 @@ angular
     
     $scope.lista = [
         {nome: 'Willian', cidade: 'Cialost'},
-        {nome: 'Lari', cidade: 'Cianorte'},
-        {nome: 'Leo', cidade: 'Cianorte'},
-        {nome: 'Quinalha', cidade: 'Marierva'},
+        {nome: 'Lar', cidade: 'Cianorte'},
+        {nome: 'Is', cidade: 'Cianorte'},
+        {nome: 'Sam', cidade: 'Marierva'},
         {nome: 'Betão', cidade: 'Carrero World'},
         {nome: 'Vivida', cidade: 'Babilon'}
     ];
