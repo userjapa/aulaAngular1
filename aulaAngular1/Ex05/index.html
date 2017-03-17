@@ -1,0 +1,24 @@
+<!--RODAR NO SERVIDORAPACHE-->
+<html ng-app="app">
+<head>
+	<title>Ex04</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="index.controller.js"></script>
+	<script type="text/javascript" src="angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="pessoa/pessoa.module.js"></script>
+	<script type="text/javascript" src="pessoa/pessoa.routes.js"></script>
+	<script type="text/javascript" src="pessoa/pessoa.create.controller.js"></script>
+	<script type="text/javascript" src="pessoa/pessoa.service.js"></script>
+</head>
+<body>
+
+	<ui-view></ui-view>
+
+	<form name="userForm">
+		<input type="text" ng-model="nome" name="nome">
+		{{nome}}
+	</form>
+</body>
+</html>

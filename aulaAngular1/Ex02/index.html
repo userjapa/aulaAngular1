@@ -1,0 +1,63 @@
+<html ng-app="app">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>ANGULAR Ex2</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="index.controller.js"></script>
+
+</head>
+<body ng-controller="IndexController">
+	<form name="formPessoa">
+		<input type="text" ng-model="nome" required><br>
+		<input type="text" ng-model="sobrenome" required>
+	</form>
+	nome -> {{nome}}<br>
+	sobrenome -> {{sobrenome}}<br>
+	$dirty -> {{formPessoa.$dirty}}<br>
+	$invalid -> {{formPessoa.$invalid}}<br>
+	<br>
+
+	<div>
+		<form name="usuarioForm">
+			<input type="text" ng-model="usuario" required>
+			<input type="text" ng-model="senha" required>
+			<button ng-disabled="usuarioForm.$invalid" class="btn btn-success">Clique</button>
+		</form>
+	</div>
+	<br>
+	<br>
+	<div class="form-group">
+		<form name="docesForm" ng-submit="salvarDoce(doce)">
+			<div class="col-md-6 col-md-6">
+				<label>Nome do Doce</label>
+				<input type="text" name="doceNome" ng-model="doce.nome" class="form-control" required>
+				<p ng-if="docesForm.doceNome.$invalid">Nome dos doces está invalido</p>
+			</div>
+			<div class="col-md-6 col-md-6">
+				<label>Cor do Doce</label>
+				<input type="text" name="doceCor" ng-minlength="10" ng-model="doce.cor" class="form-control" required>
+				<p ng-if="docesForm.doceCor.$invalid">Cor dos doces está invalido</p>
+
+			</div>
+			<button type="submit" ng-disabled="docesForm.$invalid" class="btn btn-success"> salvar </button>
+		</form>
+        
+        <table name="tblDoces" class="table">
+            <thead clas="table table-hover">
+                <tr>
+                    <td>Nome</td>
+                    <td>Cor</td>
+                    <td>Remover</td>
+                </tr>
+            </thead>
+            <tr ng-repeat="doce in doces track by $index">
+                <td>{{doce.nome}}</td>
+                <td>{{doce.cor}}</td>
+                <td><button ng-click="removerDoce(doce)" class="btn btn-default" name="remover">Remover</button></td>
+            </tr>
+        </table>
+        <br>
+        <button ng-click="mostrarDoces()" class=""btn btn-default>Mostrar</button>
+	</div>
+
+</html>

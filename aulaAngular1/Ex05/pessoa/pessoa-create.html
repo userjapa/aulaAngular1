@@ -1,0 +1,9 @@
+<h1>CRIA</h1>
+
+<form name="pessoaForm" ng-submit="save(pessoa)">
+	<label>Nome</label>
+	<input type="nome" ng-model="pessoa.nome" name="nome" required>
+	<input type="sobrenome" ng-model="pessoa.sobrenome" name="sobrenome" required>
+	<button type="submit" ng-disabled="pessoaForm.$dirty">SALVE</button>
+
+</form>
