@@ -1,0 +1,39 @@
+* {
+	margin:0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+table {
+	width: 100%;
+}
+
+tr {
+	height: 50px;
+}
+
+div button {
+	float: none;
+}
+
+.item1 {
+	align-self: auto;
+	width: 15%;
+	display: flex;
+	float: left;
+}
+
+.formu {
+	display: flex;
+	width: 100%;
+}
+
+.item2 {
+	align-self: auto;
+	width: 85%;
+	display: flex;
+	justify-content: center;
+}
