@@ -13,7 +13,10 @@
         
         <form name="cadForm" ng-submit="salvar()">
             <input type="text" name="nome" ng-model="elemento.nome" ng-minlength="5" required>
-            <input type="text" name="cidade" ng-model="elemento.cidade" ng-minlength="5" required>
+            <input type="text" name="cidade" ng-model="elemento.cidade" ng-minlength="5" required><br>
+            $dirty -> {{cadForm.nome.$dirty}}<br>
+            $invalid -> {{cadForm.nome.$invalid}}<br>
+            
             <button class="btn btn-default" type="submit" ng-disabled="cadForm.$invalid">Salvar</button>
         </form>
         
@@ -27,14 +30,10 @@
                 <td><input type="text" name="name" ng-model="name" required></td>
                 <td><input type="text" name="city" ng-model="city" required></td>
             </tr>
-            <tr>
-                <td><input type="text" name="name" ng-model="name" required></td>
-                <td><input type="text" name="city" ng-model="city" required></td>
-            </tr>
             <tr ng-repeat="x in lista | filter: name | filter: city">
                 <td>{{x.nome}}</td>
                 <td>{{x.cidade}}</td>
-                <td><button class="btn btn-default" ng-click="remover(elemento)">Remover</button></td>
+                <td><button class="btn btn-default" ng-click="remover(x)">Remover</button></td>
             </tr>
         </table>
     </body>

@@ -7,6 +7,15 @@ html, body {
 	height: 100%;
 }
 
+.margin {
+    margin: 0 auto
+}
+
+.tamanho {
+    width: 1100px;
+    max-width: 90%
+}
+
 table {
 	width: 100%;
 }
@@ -19,21 +28,40 @@ div button {
 	float: none;
 }
 
-.item1 {
-	align-self: auto;
-	width: 15%;
-	display: flex;
-	float: left;
-}
-
 .formu {
 	display: flex;
+    flex-wrap: wrap;
 	width: 100%;
+    flex-direction: column
+}
+
+.item1 {
+    flex-grow: 1;
+    flex-basis: 300px;
 }
 
 .item2 {
-	align-self: auto;
-	width: 85%;
-	display: flex;
-	justify-content: center;
+    flex-grow: 1;
+    flex-basis: 500px;
+}
+
+.container {
+    height: 300px;
+    width: 100%;
+    display: flex
+}
+
+.container-form {
+    display: flex
+}
+.form-box {
+    flex-grow: 1;
+    margin: 10px;
+    flex-basis: 500px;
+}
+.box {
+    flex-wrap: 1;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px
 }

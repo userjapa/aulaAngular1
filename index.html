@@ -1,4 +1,4 @@
-<html ng-app="app">
+    <html ng-app="app">
 <head>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="js/angular.min.js"></script>
@@ -10,33 +10,63 @@
 	<title>Teste ANGULAR</title>
 </head>
 <body ng-controller="IndexController">
-	<div class="formu">
+	<div class="formu margin tamanho">
 	    <div class="item1"> 
-	        <form name="prodForm" ng-submit="salvar(produto)">
-	        	<p><input type="text" class="form-control" name="nome" ng-model="produto.nome" ng-minlength="5" required><span ng-if="prodForm.nome.$invalid"> Informe o nome!</span></p>
-	        	<p><input type="num" class="form-control" name="preco" ng-model="produto.preco" ng-minlength="3" required><span ng-if="prodForm.preco.$invalid"> Informe o preço!</span></p>
-	        	<p><input type="number" class="form-control" name="quantidade" ng-model="produto.quantidade" min="0" required><span ng-if="prodForm.quantidade.$invalid"> Informe a quantidade!</span></p>
-	        	<p><button type="submit" class="btn btn-success" ng-disabled="prodForm.$invalid">Salvar</button>
-	        </form>
+	        <div class="container-form">
+                <div class="form-box">
+                    <form name="prodForm" ng-submit="salvar(produto)">
+                        <p>
+                            <label>Digite seu nome</label>
+                            <input type="text" class="form-control" name="nome" ng-model="produto.nome" ng-minlength="5" placeholder="Ex: João" required><span ng-if="prodForm.nome.$invalid"> Informe o nome!</span></p>
+                        <p>
+                            <label>Digite o valor</label>
+                            <input type="num" class="form-control" name="preco" ng-model="produto.preco" ng-minlength="3" required><span ng-if="prodForm.preco.$invalid"> Informe o preço!</span></p>
+                        <p>
+                            <label>Digite a quantidade</label>
+                            <input type="number" class="form-control" name="quantidade" ng-model="produto.quantidade" min="0" required><span ng-if="prodForm.quantidade.$invalid"> Informe a quantidade!</span></p>
+                        <p><button type="submit" class="btn btn-success" ng-disabled="prodForm.$invalid">Salvar</button>
+                    </form>
+                </div>
+                <div class="form-box ">
+                    <form name="editForm" ng-submit="editou(edit)">
+                        <p>
+                            <label>Digite seu nome</label>
+                            <input type="text" class="form-control" name="nome" ng-model="edit.nome" ng-minlength="3" required><span ng-if="editForm.nome.$invalid"> Informe o nome!</span></p>
+                        <p>
+                            <label>Digite o valor</label>
+                            <input type="num" class="form-control" name="preco" ng-model="edit.preco" ng-minlength="1" required><span ng-if="editForm.preco.$invalid"> Informe o preço!</span></p>
+                        <p>
+                            <label>Digite a quantidade</label>
+                            <input type="number" class="form-control" name="quantidade" ng-model="edit.quantidade" min="0" required><span ng-if="editForm.quantidade.$invalid"> Informe a quantidade!</span></p>
+                        <p><button type="submit" class="btn btn-primary" ng-disabled="editForm.$invalid">Editar</button>
+                    </form>
+                </div>
+                
+            </div>
 	    </div>
+        
 	    <div class="item2">
 	        <table class="table-striped">
 	        	<tr>
 	        		<th>NOME</th>
 	        		<th>PREÇO</th>
 	        		<th>QUANTIDADE</th>
+                    <th>TOTAL</th>
 	        		<th>REMOVER</th>
 	        		<th>ALTERAR</th>
 	        	</tr>
 	        	<tr ng-repeat="x in produtos track by $index">
 	        		<td>{{x.nome}}</td>
-	        		<td>{{x.preco}}</td>
+	        		<td>{{x.preco | currency: 'R$'}}</td>
 	        		<td>{{x.quantidade}}</td>
+                    <td></td>
 	        		<td><button ng-click="remover(x)" class="btn btn-danger">Remover</button></td>
 	        		<td><button ng-click="editar(x)" class="btn btn-warning">Editar</button></td>
 	        	</tr>
 	        </table>
 	    </div>     	
     </div>
+
+    
 </body>
 </html>
